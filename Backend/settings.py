@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "blog",
     "blog_api",
     "rest_framework",
+    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -37,12 +38,42 @@ AUTH_USER_MODEL = 'user.User'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',  # for localhost (REACT Default)
+    'http://127.0.0.1:3000',  # for network
+    'http://localhost:8080',  # for localhost (Developlemt)
+    'http://192.168.0.50:8080',  # for network (Development)
+)
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',  # for localhost (REACT Default)
+    'http://192.168.0.50:3000',  # for network
+    'http://localhost:8080',  # for localhost (Developlemt)
+    'http://192.168.0.50:8080',  # for network (Development)
+]
+
+# CORS_ALLOW_HEADERS = [
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+# ]
+
 
 ROOT_URLCONF = "Backend.urls"
 
@@ -75,6 +106,13 @@ DATABASES = {
     }
 }
 
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        
+    ]
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
