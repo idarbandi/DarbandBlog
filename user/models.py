@@ -35,7 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     start_date = models.DateTimeField(_('user join date'), auto_now_add=True)
     about = models.TextField(_('about user'), blank=True)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'

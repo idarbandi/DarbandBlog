@@ -13,9 +13,6 @@ class PostWritePermission(BasePermission):
             return True
         
         return obj.author == request.user
-            
-        
-        return obj.author == request.user
 
 class Postlist(generics.ListCreateAPIView):
     queryset = Post.postobjects.all()
