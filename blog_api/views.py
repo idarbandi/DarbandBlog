@@ -5,6 +5,7 @@ from .serializers import PostSerializer
 from django.shortcuts import get_object_or_404
 
 
+
 class PostWritePermission(BasePermission):
     # Custom Permission Class
     message = "Editing Post Is Restricted To The Admin Only"
@@ -27,4 +28,7 @@ class PostViewset(viewsets.ModelViewSet):
     # Custome Queryset
     def get_queryset(self):
         return Post.objects.all()
+    
+
+
     
