@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'corsheaders',
     "rest_framework_simplejwt.token_blacklist",
     'rest_framework_swagger',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -98,12 +99,15 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         'rest_framework.permissions.AllowAny',
     ],
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    # "DEFAULT_AUTHENTICATION_CLASSES":  (
+    #     "rest_framework_simplejwt.authentication.JWTAuthentication"
+    # ,)
 }
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_RESFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -112,7 +116,7 @@ SIMPLE_JWT = {
     "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": None,
     
-    "AUTH_HEADER_TYPES": ("Bearer", "JWT"),
+    "AUTH_HEADER_TYPES": ("JWT",),
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "user_id",
     
