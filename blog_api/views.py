@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, RetrieveDestroyAPIView
 from blog.models import Post
 from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthenticated
 from .serializers import PostSerializer
@@ -35,3 +35,24 @@ class PostSearchView(ListAPIView):
     serializer_class = PostSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['slug']
+    
+    
+class CreatePost(CreateAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    
+class AdminPostDetail(RetrieveAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    
+class EditPost(UpdateAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    
+class DeletePost(RetrieveDestroyAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer

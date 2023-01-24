@@ -96,14 +96,15 @@ DATABASES = {
 
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
+    "DEFAULT_PERMISSION_CLASSES": (
         'rest_framework.permissions.AllowAny',
-    ],
+    ),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    # "DEFAULT_AUTHENTICATION_CLASSES":  (
+}
+
+   # "DEFAULT_AUTHENTICATION_CLASSES":  (
     #     "rest_framework_simplejwt.authentication.JWTAuthentication"
     # ,)
-}
 
 
 SIMPLE_JWT = {
