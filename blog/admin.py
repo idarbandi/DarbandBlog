@@ -8,6 +8,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @register(Post)
 class PostAdmin(admin.ModelAdmin):
-    fields = ( "title", "author", "slug", "content", "status", "excerpt", "category")
+    fields = ( "title", "author", "slug", "content", "image", "status", "excerpt", "category")
     list_display = ['title']
     

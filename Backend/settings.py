@@ -1,6 +1,8 @@
 from pathlib import Path
 from .local_settings import * 
 from datetime import timedelta
+import os
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = []
@@ -100,12 +102,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES":  (
+        "rest_framework_simplejwt.authentication.JWTAuthentication"
+    ,)
 }
-
-   # "DEFAULT_AUTHENTICATION_CLASSES":  (
-    #     "rest_framework_simplejwt.authentication.JWTAuthentication"
-    # ,)
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
@@ -151,3 +151,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+MEDIA_URL = '/images/'

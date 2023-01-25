@@ -9,6 +9,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+    
+def upload_to(instance, filename):
+    return f'blog/{filename}'.format(filename=filename)
+
+    
 class Post(models.Model):
     
     #Define Custom Manager
@@ -23,6 +28,7 @@ class Post(models.Model):
     
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='posts')
     title = models.CharField(max_length=250)
+    image = models.ImageField(upload_to=upload_to, default='blog/default.jpg')
     excerpt = models.TextField(null=True)
     content = models.TextField()
     slug = models.SlugField(max_length=250, unique_for_date='published')
