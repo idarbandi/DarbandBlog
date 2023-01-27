@@ -19,12 +19,12 @@ INSTALLED_APPS = [
     "user", # Custome user app
     "blog",
     "blog_api",
-    #third party packages
+    # third party packages
     "rest_framework",
     'corsheaders',
     # "rest_framework_simplejwt.token_blacklist",
     'django_filters',
-    #Social Authentication
+    # Social Authentication
     "oauth2_provider",
     "social_django",
     "drf_social_oauth2"
