@@ -24,7 +24,7 @@ class PostWritePermission(BasePermission):
 
 
 class PostViewset(viewsets.ModelViewSet):
-    # permission_classes = [PostWritePermission, IsAuthenticated]
+    permission_classes = [PostWritePermission, IsAuthenticated]
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     
@@ -42,7 +42,7 @@ class PostSearchView(ListAPIView):
     
     
 class CreatePost(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
     
     
@@ -56,16 +56,16 @@ class CreatePost(APIView):
     
     
 class AdminPostDetail(RetrieveAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
 class EditPost(UpdateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
 class DeletePost(RetrieveDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer

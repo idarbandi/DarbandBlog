@@ -1,3 +1,5 @@
+          ######################## python commands ########################
+
 python3 manage.py makemigrations --dry-run --verbosity.3
 python3 manage.py runserver
 python3 manage.py createsuperuser
@@ -5,3 +7,16 @@ pip install coverage
 coverage run --omit='*/venv/*' manage.py test
 coverage html
 pip install djangorestframework 
+pip install swagger-ui || pip install coreapi
+pip install djangooauth2
+
+
+        ######################## JS commands ########################
+
+npx create-react-app
+npm install react-router-dom
+npm install @material-ui/core
+npm install material-ui/icons
+npm install axios
+npm --i save searchbar
+npm install react-facebook-login

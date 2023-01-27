@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import PostViewset, PostSearchView, CreatePost, AdminPostDetail, DeletePost, EditPost
 from rest_framework.routers import DefaultRouter
 
@@ -7,6 +7,8 @@ Router.register("", PostViewset, basename="post")
 
 
 urlpatterns = [
+    #Oauth2 (For Social Network)
+    path("auth/", include("drf_social_oauth2.urls", namespace="drf")),
     path('search/', PostSearchView.as_view(), name="search"),
     #Post Admin Urls 
     path("admin/create/", CreatePost.as_view(), name="CreatePost"),
