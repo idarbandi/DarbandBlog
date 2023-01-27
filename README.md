@@ -1,8 +1,8 @@
 <h1 align="center">DarBandBlog is a Simple Blog Developed With DRF & ReactJS</h1>
 <h3 align="center">DRF (Backend) ReactJS (Frontend) Full CRUD , Full (slug, title, content) search , JWT Authentication and Social (Facebook, Google) Login</h3>
 <img src="images/DarbandBlog1.png"/>
-<img src="images/DarBandBlog2.png"/>
-<img src="images/DarBandBlog3.png"/>
+<img src="images/DarbandBlog2.png"/>
+<img src="images/DarbandBlog3.png"/>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=idarbandi" alt="idarbandi" /></a> </p>
 
